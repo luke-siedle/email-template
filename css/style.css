@@ -1,0 +1,62 @@
+/* NOTES
+--------------------------------------------------------------------------------
+- Gmail
+To fix images rendering with whitespace on Gmail apply the .image_fix class 
+- Yahoo
+Use all media queries with type selectors to prevent media query rendering
+- General
+Nest tables and use cell padding to create spacing between elements.
+Premailer doesn't support media queries at this time, include them in
+the footer after processing the html.
+------------------------------------------------------------------------------*/
+
+/* Typography
+------------------------------------------------------------------------------*/
+/* Font compatibility:
+http://www.campaignmonitor.com/blog/post/3190/font-stacks-used-in-email/ */
+
+body, td, p, a {
+	font-family		: Arial;
+	font-size		: 14px;
+}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+
+/* Links */
+a, a:visited, a:active {
+	color : #003399;
+}
+
+/* Content : Wrapper 
+------------------------------------------------------------------------------*/
+.wrapper {
+	width	: 600px;
+	border	: 1px solid #ccc;
+}
+
+.header,
+.body,
+.footer {
+	padding : 1em;
+}
+
+/* Content : Header
+------------------------------------------------------------------------------*/
+.header {}
+
+
+/* Content : Body
+------------------------------------------------------------------------------*/
+.body {}
+
+/* Content : Footer
+------------------------------------------------------------------------------*/
+.footer {}
+
+.footer-links td {
+	padding-right : 1em;
+}
