@@ -1,4 +1,4 @@
 email-template
 ==============
 
-An html email template using an existing email boilerplate framework and some PHP to make life easier
+An html email template using an existing email boilerplate framework, and a Premailer API PHP wrapper - to make life easier.
