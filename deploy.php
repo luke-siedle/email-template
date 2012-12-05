@@ -7,14 +7,13 @@
 	 *	adequate string replacements
 	 */
 
-	 define( 'REMOTE_IMG_PATH', 'http://secure.lab19digital.com/stage/' );
+	 define( 'REMOTE_IMG_PATH', 'http://secure.lab19digital.com/stage/studioeleven/overbury_newsletter/' );
 	 define( 'DEPLOY_FILE', 'deploy.html' );
 	 
 	 // Load html and css //
 	 $file			= file_get_contents( 'src.html' );
 	 $boilerplt		= file_get_contents( 'css/boilerplate.css' );
-	 $css			= file_get_contents( 'css/style.css' )
-					. file_get_contents( 'css/mobile.css' );
+	 $css			= file_get_contents( 'css/style.css' );
 	 
 	 // Replacements //
 	 $file = str_replace(array(
@@ -29,7 +28,9 @@
 		 // Add table attributes //
 		 '<table',
 		 // Always set td valign to top //
-		 '<td'
+		 '<td',
+		 // Overwrite the valign if set //
+		 '<td valign="top" valign',
 		 
 	 ), array(
 		 
@@ -37,7 +38,8 @@
 		 '<style type="text/css">' . $boilerplt . $css . '</style>',
 		 '',
 		 '<table cellpadding="0" cellspacing="0"',
-		 '<td valign="top"'
+		 '<td valign="top"',
+		 '<td valign'
 		 
 	 ), $file );
 	
@@ -56,15 +58,23 @@
 		$html = $pre['html'];
 		$plain = $pre['plain'];
 		
+		$mobileCss		= file_get_contents( 'css/mobile.css' );
+		
 		// Restore media queries inline //
-		$file = str_replace(array(
-			'mobile'
+		$html = str_replace(array(
+			'</body>',
+			
+			// Inline images //
+			"url('images/"
 		), array(
-			'<style type="text/css">' . $mobileCss . '</style>'
-		), $file );
+			'<style type="text/css">' . $mobileCss . '</style></body>',
+			"url('" . REMOTE_IMG_PATH
+		), $html );
 
 		// Output the file //
-		file_put_contents( DEPLOY_FILE , $file );
+		file_put_contents( DEPLOY_FILE , $html );
+		
+		$file = $html;
 	}
 	
 	echo $file;
