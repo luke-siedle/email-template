@@ -7,7 +7,7 @@
 	 *	adequate string replacements
 	 */
 
-	 define( 'REMOTE_IMG_PATH', 'http://secure.lab19digital.com/stage/studioeleven/overbury_newsletter/' );
+	 define( 'REMOTE_IMG_PATH', 'images/' );
 	 define( 'DEPLOY_FILE', 'deploy.html' );
 	 
 	 // Load html and css //
